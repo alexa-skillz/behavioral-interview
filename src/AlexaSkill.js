@@ -27,11 +27,11 @@ AlexaSkill.prototype.requestHandlers = {
  // Override any of the eventHandlers as needed
 AlexaSkill.prototype.eventHandlers = {
   // Called when the session starts. Subclasses could have overriden this function to open any necessary resources.
-  onSessionStarted: function (sessionStartedRequest, session) {
+  onSessionStarted: function (sessionStartedRequest, session) { //eslint-disable-line
   },
 
   // Called when the user invokes the skill without specifying what they want. The subclass must override this function and provide feedback to the user.
-  onLaunch: function (launchRequest, session, response) {
+  onLaunch: function (launchRequest, session, response) { //eslint-disable-line
     throw 'onLaunch should be overriden by subclass';
   },
 
@@ -49,7 +49,7 @@ AlexaSkill.prototype.eventHandlers = {
   },
 
   // Called when the user ends the session. Subclasses could have overriden this function to close any open resources.
-  onSessionEnded: function (sessionEndedRequest, session) {
+  onSessionEnded: function (sessionEndedRequest, session) { //eslint-disable-line
   }
 };
 
