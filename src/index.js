@@ -85,7 +85,7 @@ function handleNewBehaviorRequest(response) {
   var randomBehavior = BEHAVIORS[behaviorIndex];
 
   // Create speech output
-  var speechOutput = 'Here is your question: ' + randomBehavior;
+  var speechOutput = 'To practice answering your question stand in front of a mirror with your hands at your sides and take note of your body language. Here is your question: ' + randomBehavior;
   var cardTitle = 'Your Behavioral Interview Question';
   response.tellWithCard(speechOutput, cardTitle, speechOutput);
 }
