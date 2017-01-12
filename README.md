@@ -39,5 +39,5 @@ To run this skill you need to do two things: The first is to deploy the example 
 9. Your skill is now saved and once you are finished testing you can continue to publish your skill.
 
 ## Examples
-    User: "Alexa, open Behavioral and ask me a question"
+    User: "Alexa, open Behaviors and ask me a question."
     Alexa: "Here's your question..."
