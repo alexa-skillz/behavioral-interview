@@ -1,6 +1,6 @@
 [![Coverage Status](https://coveralls.io/repos/github/alexa-skillz/behavioral-interview/badge.svg?branch=staging)](https://coveralls.io/github/alexa-skillz/behavioral-interview?branch=staging)
 
-[![Build Status](https://travis-ci.org/alexa-skillz/behavioral-interview.svg?branch=master)](https://travis-ci.org/alexa-skillz/behavioral-interview)
+[![Build Status](https://travis-ci.org/alexa-skillz/behavioral-interview.svg?branch=staging)](https://travis-ci.org/alexa-skillz/behavioral-interview)
 
 # An AWS Lambda function for Alexa
 
