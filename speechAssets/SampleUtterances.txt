@@ -1,2 +1,6 @@
 GetNewBehaviorIntent ask me a question
 GetNewBehaviorIntent give me a question
+GetNewBehaviorIntent ask me something
+GetNewBehaviorIntent give me something
+GetNewBehaviorIntent ask me an interview question
+GetNewBehaviorIntent give me an interview question
