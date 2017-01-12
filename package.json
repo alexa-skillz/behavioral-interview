@@ -7,6 +7,7 @@
     "mocha": "istanbul cover _mocha",
     "coveralls": "istanbul cover ./node_modules/mocha/bin/_mocha --report lcovonly -- -R spec && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js && rm -rf ./coverage",
     "gulp": "gulp",
+    "test": "DEBUG='interview-overflow*' istanbul cover _mocha",
     "lint": "gulp lint"
   },
   "repository": {
@@ -24,6 +25,7 @@
     "aws-lambda-mock-context": "^3.0.1",
     "chai": "^3.5.0",
     "chai-as-promised": "^6.0.0",
+    "coveralls": "^2.11.15",
     "gulp": "^3.9.1",
     "gulp-cache": "^0.4.5",
     "gulp-eslint": "^3.0.1",

@@ -13,7 +13,7 @@ gulp.task('pre-test', function() {
 });
 
 gulp.task('test', ['pre-test'], function() {
-  gulp.src('./test/*-test.js', { read: false})
+  gulp.src('./test/test-*.js', { read: false})
   .pipe(mocha({ report: 'spec'}))
   .pipe(istanbul.writeReports())
   .pipe(istanbul.enforceThresholds({thresholds: {global: 90}}));
