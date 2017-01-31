@@ -1,6 +1,6 @@
 'use strict';
 
-var APP_ID = amzn1.ask.skill.9815ca21-6f0c-4430-917e-ef20c90b65c5;
+// var APP_ID = amzn1.ask.skill.9815ca21-6f0c-4430-917e-ef20c90b65c5;
 
 var BEHAVIORS = [
   'Tell me about a time when your project failed.',
