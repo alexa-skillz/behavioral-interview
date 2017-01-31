@@ -1,9 +1,7 @@
 'use strict';
 
-// App ID for the skill.
-var APP_ID = undefined;
+var APP_ID = amzn1.ask.skill.9815ca21-6f0c-4430-917e-ef20c90b65c5;
 
-// Array containing behavioral questions.
 var BEHAVIORS = [
   'Tell me about a time when your project failed.',
   'Tell me about a time when you were struggling to meet a deadline.',
@@ -13,47 +11,37 @@ var BEHAVIORS = [
   'Why should we hire you?',
   'Why do you want to work for this company?',
   'If you could do anything, what would be your ideal job?',
-  'Describe a recent project and the hurdles you faced there.',
   'Describe a time you encountered an issue and how you fixed it.',
-  'Describe a time when you made a suggestion to improve something on the project that you were working on.',
   'Has there been a time on a project when you disagreed with someone? What did you do about it?',
-  'Give me a recent example of a stressful situation on the job. How did you handle it?',
   'Tell me about a time that you took a risk.',
-  'Tell me about the first job you ever had. What did you do to learn the ropes?',
   'Tell me about a time that you failed. How did you deal with the situation?',
-  'Tell me about a successful presentation that you gave and why you think it was a hit.',
+  'Tell me about a successful presentation that you gave.',
   'Tell me about your proudest professional accomplishment.',
-  'Describe a time when you saw a problem and took the initiative to correct it rather than waiting for someone else to do it.',
-  'Tell me about a time you were dissatisfied in your work. What could have been done to make it better?',
   'Tell me a bit about yourself.'
 ];
 
-// Require the AlexaSkill prototype and helper functions.
 var AlexaSkill = require('./AlexaSkill');
 
-// interviewBehaviors is a child of AlexaSkill via inheritance.
 var Behavior = function () {
   AlexaSkill.call(this, APP_ID);
 };
 
-// Extend AlexaSkill
 Behavior.prototype = Object.create(AlexaSkill.prototype);
 Behavior.prototype.constructor = Behavior;
 
 Behavior.prototype.eventHandlers.onSessionStarted = function (sessionStartedRequest, session) {
   console.log('onSessionStarted requestId: ' + sessionStartedRequest.requestId + ', sessionId: ' + session.sessionId);
-  // any initialization logic goes here
 };
 
-Behavior.prototype.eventHandlers.onLaunch = function (launchRequest, session, response) {
-  //console.log("onLaunch requestId: " + launchRequest.requestId + ", sessionId: " + session.sessionId);
-  handleNewBehaviorRequest(response);
+Behavior.prototype.eventHandlers.onLaunch = function(launchRequest, session, response) {
+  console.log(`launchRequest ID: ${launchRequest.requestId} - session launch ID: ${session.sessionId}`);
+  let speechOutput = 'Welcome to the Behavioral Interview question trainer. I\'m about to give you a question, as you answer stand in front of a mirror and take note of your posture and body language. Are you ready for a question?';
+  let repromptText = 'Are you ready for a question?';
+  response.ask(speechOutput, repromptText);
 };
 
-// Overridden to show that a subclass can override this function to teardown session state.
 Behavior.prototype.eventHandlers.onSessionEnded = function (sessionEndedRequest, session) {
   console.log('onSessionEnded requestId: ' + sessionEndedRequest.requestId + ', sessionId: ' + session.sessionId);
-  // any cleanup logic goes here
 };
 
 Behavior.prototype.intentHandlers = {
@@ -76,22 +64,18 @@ Behavior.prototype.intentHandlers = {
   }
 };
 
-// Gets a random new behavioral question from the list and returns to the user.
 function handleNewBehaviorRequest(response) {
 
-  // Get a random interview behavioral question from the interview behavioral question list
   var behaviorIndex = Math.floor(Math.random() * BEHAVIORS.length);
   var randomBehavior = BEHAVIORS[behaviorIndex];
 
-  // Create speech output
-  var speechOutput = 'To practice answering your question stand in front of a mirror with your hands at your sides and take note of your body language. Here is your question: ' + randomBehavior;
+  var speechOutput = 'Here is your question: ' + randomBehavior;
+  var repromptSpeech = 'Here is your question: ' + randomBehavior;
   var cardTitle = 'Your Behavioral Interview Question';
-  response.tellWithCard(speechOutput, cardTitle, speechOutput);
+  response.tellWithCard(speechOutput, repromptSpeech, cardTitle, speechOutput);
 }
 
-// Create the handler that responds to the Alexa Request.
 exports.handler = function (event, context) {
-  // Create an instance of the interviewBehaviors skill.
   var behavior = new Behavior();
   behavior.execute(event, context);
 };
