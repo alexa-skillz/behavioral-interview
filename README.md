@@ -1,6 +1,4 @@
-[![Coverage Status](https://coveralls.io/repos/github/alexa-skillz/behavioral-interview/badge.svg?branch=staging)](https://coveralls.io/github/alexa-skillz/behavioral-interview?branch=staging)
-
-[![Build Status](https://travis-ci.org/alexa-skillz/behavioral-interview.svg?branch=staging)](https://travis-ci.org/alexa-skillz/behavioral-interview)
+[![Coverage Status](https://coveralls.io/repos/github/alexa-skillz/behavioral-interview/badge.svg?branch=staging)](https://coveralls.io/github/alexa-skillz/behavioral-interview?branch=staging) [![Build Status](https://travis-ci.org/alexa-skillz/behavioral-interview.svg?branch=staging)](https://travis-ci.org/alexa-skillz/behavioral-interview)
 
 # An AWS Lambda function for Alexa
 
@@ -43,5 +41,5 @@ To run this skill you need to do two things: The first is to deploy the example 
 9. Your skill is now saved and once you are finished testing you can continue to publish your skill.
 
 ## Examples
-    User: "Alexa, open Behaviors and ask me a question."
+    User: "Alexa, open Behavioral Interview and ask me a question."
     Alexa: "Here's your question..."

@@ -4,4 +4,3 @@ GetNewBehaviorIntent ask me something
 GetNewBehaviorIntent give me something
 GetNewBehaviorIntent ask me an interview question
 GetNewBehaviorIntent give me an interview question
-GetNewBehaviorIntent open behaviors interview 
