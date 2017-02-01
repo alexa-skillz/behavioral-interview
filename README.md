@@ -1,3 +1,5 @@
+[![Coverage Status](https://coveralls.io/repos/github/alexa-skillz/behavioral-interview/badge.svg?branch=staging)](https://coveralls.io/github/alexa-skillz/behavioral-interview?branch=staging) [![Build Status](https://travis-ci.org/alexa-skillz/behavioral-interview.svg?branch=staging)](https://travis-ci.org/alexa-skillz/behavioral-interview)
+
 # An AWS Lambda function for Alexa
 
 This is an <a href="http://aws.amazon.com/lambda">AWS Lambda</a> function with an Alexa skill for the Amazon Echo using the Alexa SDK. This skill covers Behavioral Interview technical questions and is part of the <a href="https://github.com/alexa-skillz">Alexa Skillz</a> project which includes separate skills in other categories of interview questions.
@@ -39,5 +41,5 @@ To run this skill you need to do two things: The first is to deploy the example 
 9. Your skill is now saved and once you are finished testing you can continue to publish your skill.
 
 ## Examples
-    User: "Alexa, open Behavioral and ask me a question"
+    User: "Alexa, open Behavioral Interview and ask me a question."
     Alexa: "Here's your question..."

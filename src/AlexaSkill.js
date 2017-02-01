@@ -24,43 +24,37 @@ AlexaSkill.prototype.requestHandlers = {
   }
 };
 
- // Override any of the eventHandlers as needed
 AlexaSkill.prototype.eventHandlers = {
-  // Called when the session starts. Subclasses could have overriden this function to open any necessary resources.
-  onSessionStarted: function (sessionStartedRequest, session) {
+  sessionStartedRequest: function(sessionStartedRequest, session) {
+    console.log(`eventHandlers - sessionStartedRequest ID: ${sessionStartedRequest.requestId} - session ID: ${session.sessionId}`);
   },
-
-  // Called when the user invokes the skill without specifying what they want. The subclass must override this function and provide feedback to the user.
-  onLaunch: function (launchRequest, session, response) {
-    throw 'onLaunch should be overriden by subclass';
+  onLaunch: function(launchRequest, session, response) {
+    console.log(`eventHandlers - launchRequest ID: ${launchRequest.requestId} - session ID: ${session.sessionId} - response: ${response}`);
+    throw 'onLaunch should be overriden by a subclass';
   },
+  onIntent: function(intentRequest, session, response) {
+    let intent = intentRequest.intent;
+    let intentName = intentRequest.intent.name;
+    let intentHandler = this.intentHandlers[intentName];
 
-  // Called when the user specifies an intent.
-  onIntent: function (intentRequest, session, response) {
-    var intent = intentRequest.intent,
-      intentName = intentRequest.intent.name,
-      intentHandler = this.intentHandlers[intentName];
     if (intentHandler) {
-      console.log('dispatch intent = ' + intentName);
+      console.log(`dispatch intent = ${intentName}`);
       intentHandler.call(this, intent, session, response);
     } else {
-      throw 'Unsupported intent = ' + intentName;
+      throw `Unsupported intent = ${intentName}`;
     }
   },
-
-  // Called when the user ends the session. Subclasses could have overriden this function to close any open resources.
-  onSessionEnded: function (sessionEndedRequest, session) {
+  onSessionEnded: function(sessionEndedRequest, session) {
+    console.log(`eventHandlers - sessionEndedRequest ID: ${sessionEndedRequest.requestId} - session ID: ${session.sessionId}`);
   }
 };
 
-// Subclasses should override the intentHandlers with the functions to handle specific intents.
 AlexaSkill.prototype.intentHandlers = {};
 
 AlexaSkill.prototype.execute = function (event, context) {
   try {
     console.log('session applicationId: ' + event.session.application.applicationId);
 
-    // Validate that this request originated from authorized source.
     if (this._appId && event.session.application.applicationId !== this._appId) {
       console.log('The applicationIds do not match : ' + event.session.application.applicationId + ' and '
                 + this._appId);
@@ -75,7 +69,6 @@ AlexaSkill.prototype.execute = function (event, context) {
       this.eventHandlers.onSessionStarted(event.request, event.session);
     }
 
-    // Route the request to the proper handler which may have been overriden.
     var requestHandler = this.requestHandlers[event.request.type];
     requestHandler.call(this, event, context, new Response(context, event.session));
   } catch (e) {
